@@ -19,3 +19,7 @@ spec:
       units:
       - name: multipathd.service
         enabled: true
+# The above manifest enabled multipathing for FiberChannel based connections. To add iSCSI based FlashArray's uncomment the two lines below to enable the iSCSI service in RHCOS.
+#      - name: iscsid.service
+#        enabled: true
+        
