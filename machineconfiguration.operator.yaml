@@ -1,0 +1,28 @@
+# This only went GA for OpenShift in 4.17
+# 
+# https://docs.openshift.com/container-platform/4.17/machine_configuration/machine-config-node-disruption.html
+apiVersion: operator.openshift.io/v1
+kind: MachineConfiguration
+metadata:
+  name: cluster
+  namespace: openshift-machine-config-operator
+spec:
+  nodeDisruptionPolicy:
+    files:
+    - path: /etc/multipath.conf
+      actions:
+      - type: Restart
+        restart:
+          serviceName: multipathd.service
+
+    units:
+    - name: multipathd.service
+      actions:
+      - type: Restart
+        restart: 
+          serviceName: multipathd.service
+    - name: iscsid.service
+      actions:
+      - type: Restart
+        restart: 
+          serviceName: iscsid.service
