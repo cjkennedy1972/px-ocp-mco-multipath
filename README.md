@@ -1,6 +1,6 @@
 # px-ocp-mco-multipath
 
-YAML file creates an OpenShift MachineConfig to enabled multipathd and configure it to ignore locally attached devices
+Applying the two YAML files in this repo creates an OpenShift MachineConfig to enable multipathd and configure it to ignore locally attached devices and adds Pure Storage's recommended UDEV rules.
 
 ** Updated Nov. 5th 2024**
 - Latest multipath.conf for Pure Storage FlashArrays
